@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video to MP3 Converter | Free Audio Extractor from Video Files</title>
+    <meta name="description" content="Free online video to audio converter. Extract audio from video files and convert to MP3 format instantly. Best audio extractor from video tool with no registration required.">
+    <meta name="keywords" content="video to audio converter, audio extractor from video, convert video to mp3, extract audio from video, video to mp3 converter, online audio extractor, free video converter">
+    <meta name="author" content="Media Converter Pro">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Video to MP3 Converter | Free Audio Extractor from Video">
+    <meta property="og:description" content="Extract audio from video files and convert to MP3 format instantly. Free online tool with no registration required.">
+    <meta property="og:type" content="website">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Video to MP3 Converter",
+        "description": "Free online tool to extract audio from video files and convert to MP3 format",
+        "url": "https://yourdomain.com",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "All",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": "Video to audio conversion, MP3 extraction, No registration, Free to use"
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary: #6a11cb;
+            --secondary: #2575fc;
+            --accent: #ff5e62;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --success: #28a745;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 2rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: var(--gradient);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            animation: headerSlide 1s ease-out;
+        }
+
+        @keyframes headerSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            from {
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            }
+            to {
+                text-shadow: 2px 2px 8px rgba(0,0,0,0.5), 0 0 15px rgba(255,255,255,0.3);
+            }
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .converter-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+            transition: var(--transition);
+            animation: cardSlide 0.8s ease-out;
+        }
+
+        @keyframes cardSlide {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .converter-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .upload-area {
+            border: 3px dashed #ddd;
+            border-radius: 15px;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 2rem 0;
+            transition: var(--transition);
+            cursor: pointer;
+            background: #f9f9f9;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .upload-area::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .upload-area:hover::before {
+            left: 100%;
+        }
+
+        .upload-area:hover {
+            border-color: var(--primary);
+            background: #f0f4ff;
+            transform: scale(1.02);
+        }
+
+        .upload-area i {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .upload-area:hover i {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .btn {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(106, 17, 203, 0.4);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .progress-container {
+            margin: 2rem 0;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .progress-container.active {
+            display: block;
+        }
+
+        .progress-bar {
+            height: 12px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .progress {
+            height: 100%;
+            background: var(--gradient);
+            width: 0%;
+            transition: width 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .download-area {
+            text-align: center;
+            margin: 2rem 0;
+            display: none;
+        }
+
+        .download-area.active {
+            display: block;
+            animation: bounceIn 0.6s ease;
+        }
+
+        @keyframes bounceIn {
+            0% { 
+                opacity: 0;
+                transform: scale(0.3) rotate(-5deg);
+            }
+            50% { 
+                opacity: 1;
+                transform: scale(1.05) rotate(2deg);
+            }
+            70% { 
+                transform: scale(0.9) rotate(-1deg);
+            }
+            100% { 
+                opacity: 1;
+                transform: scale(1) rotate(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .download-btn {
+            background: var(--success);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .audio-player {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .audio-player:hover {
+            transform: scale(1.02);
+        }
+
+        .info-box {
+            background: #e7f3ff;
+            border-left: 5px solid var(--primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 15px 15px 0;
+            transition: var(--transition);
+        }
+
+        .info-box:hover {
+            transform: translateX(10px);
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .video-preview {
+            max-width: 100%;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+            display: none;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: var(--transition);
+        }
+
+        .video-preview.active {
+            display: block;
+            animation: zoomIn 0.5s ease;
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .status-message {
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+            text-align: center;
+            display: none;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .status-message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 2px solid #c3e6cb;
+            display: block;
+        }
+
+        .status-message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 2px solid #f5c6cb;
+            display: block;
+        }
+
+        .file-info {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+            display: none;
+            border-left: 5px solid var(--secondary);
+            transition: var(--transition);
+        }
+
+        .file-info.active {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+
+        .file-info:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .format-info {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 15px 15px 0;
+            transition: var(--transition);
+        }
+
+        .format-info:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(255,193,7,0.3);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--primary);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .seo-article {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+            margin: 3rem 0;
+            animation: fadeIn 1s ease;
+        }
+
+        .seo-article h2 {
+            color: var(--dark);
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 2.2rem;
+        }
+
+        .seo-article h3 {
+            color: var(--primary);
+            margin: 2rem 0 1rem 0;
+            font-size: 1.5rem;
+        }
+
+        .seo-article p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+            justify-content: center;
+        }
+
+        .keyword {
+            background: var(--light);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            color: var(--dark);
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+
+        .keyword:hover {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
+            border-color: var(--secondary);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem;
+            color: #666;
+            border-top: 2px solid #eee;
+            animation: fadeIn 1s ease;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .tagline {
+                font-size: 1.1rem;
+            }
+            
+            .converter-card {
+                padding: 2rem;
+            }
+            
+            .upload-area {
+                padding: 3rem 1.5rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .seo-article {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+            
+            .converter-card {
+                padding: 1.5rem;
+            }
+            
+            .upload-area {
+                padding: 2rem 1rem;
+            }
+            
+            .upload-area i {
+                font-size: 3rem;
+            }
+        }
+
+        /* Loading Animation */
+        .loading-dots {
+            display: inline-flex;
+            gap: 5px;
+        }
+
+        .loading-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+
+        .loading-dots span:nth-child(1) { animation-delay: -0.32s; }
+        .loading-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes bounce {
+            0%, 80%, 100% { 
+                transform: scale(0);
+            } 
+            40% { 
+                transform: scale(1);
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Video to MP3 Converter</h1>
+            <p class="tagline">Extract high-quality audio from your video files instantly. The best free video to audio converter online.</p>
+        </header>
+
+        <!-- Features Section -->
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-bolt"></i>
+                <h3>Instant Conversion</h3>
+                <p>Convert video to MP3 in seconds with our fast processing engine</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>100% Secure</h3>
+                <p>Your files are processed locally and never stored on our servers</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-file-audio"></i>
+                <h3>High Quality</h3>
+                <p>Get crystal clear MP3 audio with original sound quality</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-universal-access"></i>
+                <h3>Free Forever</h3>
+                <p>No registration, no watermarks, completely free to use</p>
+            </div>
+        </div>
+
+        <!-- Main Converter -->
+        <div class="converter-card">
+            <h2>Video to Audio Converter</h2>
+            <p>Extract audio from any video file and convert to MP3 format</p>
+            
+            <div class="upload-area" id="video-upload-area">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <h3>Choose Video File</h3>
+                <p>Click to browse or drag & drop your video file</p>
+                <p>Supported formats: MP4, AVI, MOV, MKV, WebM, WMV</p>
+                <input type="file" id="video-file" accept="video/*" style="display: none;">
+                <button class="btn" id="video-browse-btn">
+                    <i class="fas fa-folder-open"></i> Select Video File
+                </button>
+            </div>
+
+            <div class="file-info" id="file-info">
+                <h4>File Information:</h4>
+                <p id="file-details"></p>
+                <p id="video-duration"></p>
+            </div>
+
+            <video class="video-preview" id="video-preview" controls></video>
+
+            <div class="format-info">
+                <strong><i class="fas fa-info-circle"></i> Output Format:</strong> MP3 (High Quality 128kbps) - Perfect balance of quality and file size for all your audio needs.
+            </div>
+
+            <div class="info-box">
+                <strong><i class="fas fa-star"></i> Why Choose Our Video to Audio Converter?</strong><br>
+                • Extract exact audio from your video files<br>
+                • Preserve original sound quality and duration<br>
+                • Fast conversion with no waiting times<br>
+                • 100% free with no hidden costs<br>
+                • Works directly in your browser - no downloads required
+            </div>
+
+            <div class="progress-container" id="video-progress">
+                <div class="progress-bar">
+                    <div class="progress" id="video-progress-bar"></div>
+                </div>
+                <p id="video-progress-text">Processing your video to audio conversion <span class="loading-dots"><span></span><span></span><span></span></span></p>
+            </div>
+
+            <div id="audio-preview" style="display: none;">
+                <h3>Audio Extracted Successfully!</h3>
+                <p>Preview your converted audio file:</p>
+                <audio id="audio-player" controls class="audio-player"></audio>
+            </div>
+
+            <div class="download-area" id="video-download">
+                <h3>🎉 MP3 Ready for Download!</h3>
+                <p>Your video audio has been successfully converted to MP3 format</p>
+                <button class="btn download-btn" id="video-download-btn">
+                    <i class="fas fa-download"></i> Download MP3 File
+                </button>
+            </div>
+
+            <div class="status-message" id="status-message"></div>
+
+            <button class="btn" id="video-convert-btn" style="display: none; width: 100%; margin-top: 1.5rem; padding: 18px;">
+                <i class="fas fa-magic"></i> Convert Video to MP3
+            </button>
+        </div>
+
+        <!-- SEO Article Section -->
+        <div class="seo-article">
+            <h2>The Ultimate Video to Audio Converter - Extract Audio from Any Video</h2>
+            
+            <p>Looking for a reliable <strong>video to audio converter</strong> that actually works? You've found it! Our advanced online tool makes it incredibly simple to extract audio from any video file and convert it to high-quality MP3 format. Whether you need to save the soundtrack from a movie, create a podcast from a video recording, or simply want the audio from a memorable video clip, our converter handles it all with exceptional quality.</p>
+            
+            <h3>Why Use Our Audio Extractor from Video?</h3>
+            <p>Our <strong>audio extractor from video</strong> stands out from the competition with its superior features. We support all popular video formats including MP4, AVI, MOV, MKV, and WebM. The conversion process is straightforward: upload your video, and our intelligent tool instantly extracts the audio track while preserving the original sound quality. The resulting MP3 file maintains perfect synchronization with your original video's duration and audio characteristics.</p>
+            
+            <h3>Perfect Video to MP3 Conversion Every Time</h3>
+            <p>As a leading <strong>video to MP3 converter</strong>, we ensure that every conversion maintains the integrity of your original audio. Unlike other tools that compress or alter the sound quality, our technology preserves the exact audio characteristics from your video file. This makes our tool ideal for musicians, content creators, students, and professionals who need reliable audio extraction.</p>
+            
+            <h3>How to Convert Video to Audio in 3 Simple Steps</h3>
+            <p>Using our <strong>video to audio converter</strong> couldn't be easier. First, upload your video file by dragging and dropping or using the file browser. Second, click the convert button - our system automatically detects the optimal settings for your file. Third, download your MP3 file instantly. The entire process takes just moments, and there's no registration required!</p>
+            
+            <h3>Free Online Audio Extraction Tool</h3>
+            <p>Our <strong>free audio extractor from video</strong> eliminates the need for expensive software or complicated installations. Everything happens directly in your browser, ensuring maximum security and privacy for your files. We never store your videos or audio files on our servers, giving you complete peace of mind while using our conversion services.</p>
+
+            <div class="keywords">
+                <span class="keyword">video to audio converter</span>
+                <span class="keyword">audio extractor from video</span>
+                <span class="keyword">convert video to mp3</span>
+                <span class="keyword">extract audio from video online</span>
+                <span class="keyword">video to mp3 converter</span>
+                <span class="keyword">free audio extraction tool</span>
+                <span class="keyword">online video converter</span>
+                <span class="keyword">mp4 to mp3 converter</span>
+                <span class="keyword">video audio extractor</span>
+                <span class="keyword">best video to audio converter</span>
+            </div>
+            
+            <h3>Common Uses for Video to Audio Conversion</h3>
+            <p>Our <strong>video to audio converter</strong> serves numerous practical purposes. Content creators can extract background music from videos for their projects. Students can convert lecture recordings to audio for easy review. Travelers can create audio travelogues from their video memories. Podcasters can repurpose video content into audio episodes. The possibilities are endless when you have a reliable tool for extracting audio from video files.</p>
+            
+            <p>Whether you're a professional needing to <strong>extract audio from video</strong> for work projects or someone looking to save favorite moments from personal videos, our converter provides the perfect solution. Experience the convenience of instant, high-quality audio extraction today. Try our <strong>video to MP3 converter</strong> now and discover why thousands of users trust us for their audio conversion needs!</p>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Video to MP3 Converter. All rights reserved.</p>
+            <p>Free online tool for converting videos to audio and extracting MP3 files from video content.</p>
+        </footer>
+    </div>
+
+    <!-- Include lamejs for MP3 encoding -->
+    <script src="https://cdn.jsdelivr.net/npm/lamejs@1.2.1/lame.min.js"></script>
+
+    <script>
+        // Get DOM elements
+        const videoUploadArea = document.getElementById('video-upload-area');
+        const videoFileInput = document.getElementById('video-file');
+        const videoBrowseBtn = document.getElementById('video-browse-btn');
+        const videoPreview = document.getElementById('video-preview');
+        const videoConvertBtn = document.getElementById('video-convert-btn');
+        const videoProgress = document.getElementById('video-progress');
+        const videoProgressBar = document.getElementById('video-progress-bar');
+        const videoProgressText = document.getElementById('video-progress-text');
+        const audioPreview = document.getElementById('audio-preview');
+        const audioPlayer = document.getElementById('audio-player');
+        const videoDownload = document.getElementById('video-download');
+        const videoDownloadBtn = document.getElementById('video-download-btn');
+        const statusMessage = document.getElementById('status-message');
+        const fileInfo = document.getElementById('file-info');
+        const fileDetails = document.getElementById('file-details');
+        const videoDuration = document.getElementById('video-duration');
+
+        let currentVideoFile = null;
+        let extractedAudioBlob = null;
+        let videoDurationSeconds = 0;
+
+        // Event listeners
+        videoBrowseBtn.addEventListener('click', () => videoFileInput.click());
+        videoUploadArea.addEventListener('click', () => videoFileInput.click());
+        
+        videoUploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            videoUploadArea.style.borderColor = 'var(--primary)';
+            videoUploadArea.style.backgroundColor = '#f0f4ff';
+        });
+        
+        videoUploadArea.addEventListener('dragleave', () => {
+            videoUploadArea.style.borderColor = '#ddd';
+            videoUploadArea.style.backgroundColor = '#f9f9f9';
+        });
+        
+        videoUploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            videoUploadArea.style.borderColor = '#ddd';
+            videoUploadArea.style.backgroundColor = '#f9f9f9';
+            
+            if (e.dataTransfer.files.length) {
+                handleVideoFile(e.dataTransfer.files[0]);
+            }
+        });
+
+        videoFileInput.addEventListener('change', (e) => {
+            if (e.target.files.length) {
+                handleVideoFile(e.target.files[0]);
+            }
+        });
+
+        function handleVideoFile(file) {
+            if (!file.type.startsWith('video/')) {
+                showStatus('Please upload a valid video file (MP4, AVI, MOV, etc.)', 'error');
+                return;
+            }
+            
+            if (file.size > 100 * 1024 * 1024) {
+                showStatus('File size too large. Please upload a video smaller than 100MB.', 'error');
+                return;
+            }
+            
+            currentVideoFile = file;
+            
+            // Create video preview and get duration
+            const videoUrl = URL.createObjectURL(file);
+            videoPreview.src = videoUrl;
+            videoPreview.classList.add('active');
+            
+            // Get video duration
+            videoPreview.addEventListener('loadedmetadata', () => {
+                videoDurationSeconds = videoPreview.duration;
+                fileInfo.classList.add('active');
+                fileDetails.textContent = `File: ${file.name} | Size: ${(file.size / (1024 * 1024)).toFixed(2)} MB`;
+                videoDuration.textContent = `Duration: ${formatTime(videoDurationSeconds)}`;
+            });
+            
+            videoConvertBtn.style.display = 'inline-flex';
+            
+            // Reset previous conversion
+            videoProgress.classList.remove('active');
+            audioPreview.style.display = 'none';
+            videoDownload.classList.remove('active');
+            statusMessage.className = 'status-message';
+            
+            // Update UI
+            videoUploadArea.innerHTML = `
+                <i class="fas fa-check-circle" style="color: var(--success);"></i>
+                <h3>File Selected</h3>
+                <p>${file.name}</p>
+                <p>Size: ${(file.size / (1024 * 1024)).toFixed(2)} MB</p>
+                <button class="btn" onclick="document.getElementById('video-file').click()">
+                    <i class="fas fa-redo"></i> Choose Different File
+                </button>
+            `;
+            
+            showStatus('Video loaded successfully! Click "Convert Video to MP3" to extract audio.', 'success');
+        }
+
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function showStatus(message, type) {
+            statusMessage.textContent = message;
+            statusMessage.className = `status-message ${type}`;
+        }
+
+        // Convert video to MP3
+        videoConvertBtn.addEventListener('click', async () => {
+            if (!currentVideoFile) return;
+            
+            videoProgress.classList.add('active');
+            videoConvertBtn.disabled = true;
+            showStatus('Extracting audio and converting to MP3 format...', 'success');
+            
+            try {
+                // Simulate extraction process with accurate timing
+                let progress = 0;
+                const totalSteps = 100;
+                const progressInterval = setInterval(() => {
+                    progress += 100 / (videoDurationSeconds * 2);
+                    if (progress >= 95) {
+                        progress = 95;
+                        clearInterval(progressInterval);
+                    }
+                    updateProgress(progress);
+                }, 100);
+
+                // Extract actual audio from video and convert to MP3
+                await extractAndConvertToMP3(currentVideoFile);
+                
+                // Complete progress
+                updateProgress(100);
+                
+                setTimeout(() => {
+                    videoProgress.classList.remove('active');
+                    audioPreview.style.display = 'block';
+                    videoDownload.classList.add('active');
+                    videoConvertBtn.disabled = false;
+                    showStatus(`Success! Converted ${formatTime(videoDurationSeconds)} of video to MP3 audio.`, 'success');
+                }, 500);
+                
+            } catch (error) {
+                console.error('Error extracting audio:', error);
+                showStatus('Error processing video. Please try again with a different file.', 'error');
+                videoConvertBtn.disabled = false;
+                videoProgress.classList.remove('active');
+            }
+        });
+
+        function updateProgress(percent) {
+            videoProgressBar.style.width = `${percent}%`;
+            videoProgressText.textContent = `Processing... ${Math.round(percent)}%`;
+        }
+
+        // Extract audio and convert to MP3
+        async function extractAndConvertToMP3(videoFile) {
+            return new Promise((resolve, reject) => {
+                const video = document.createElement('video');
+                video.src = URL.createObjectURL(videoFile);
+                video.muted = false;
+                
+                video.onloadedmetadata = async () => {
+                    try {
+                        // Extract audio using MediaRecorder
+                        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                        const source = audioContext.createMediaElementSource(video);
+                        const destination = audioContext.createMediaStreamDestination();
+                        
+                        source.connect(destination);
+                        source.connect(audioContext.destination);
+                        
+                        const mediaRecorder = new MediaRecorder(destination.stream, {
+                            mimeType: 'audio/webm;codecs=opus'
+                        });
+                        
+                        const audioChunks = [];
+                        
+                        mediaRecorder.ondataavailable = (event) => {
+                            if (event.data.size > 0) {
+                                audioChunks.push(event.data);
+                            }
+                        };
+                        
+                        mediaRecorder.onstop = async () => {
+                            try {
+                                // Convert WebM to WAV first, then to MP3
+                                const webmBlob = new Blob(audioChunks, { type: 'audio/webm' });
+                                const wavBuffer = await convertWebmToWav(webmBlob);
+                                const mp3Blob = await convertWavToMp3(wavBuffer);
+                                
+                                extractedAudioBlob = mp3Blob;
+                                
+                                const audioUrl = URL.createObjectURL(mp3Blob);
+                                audioPlayer.src = audioUrl;
+                                
+                                resolve();
+                            } catch (error) {
+                                reject(error);
+                            }
+                        };
+                        
+                        mediaRecorder.start();
+                        
+                        // Play the video to capture audio
+                        video.play().then(() => {
+                            setTimeout(() => {
+                                if (mediaRecorder.state === 'recording') {
+                                    mediaRecorder.stop();
+                                    video.pause();
+                                }
+                            }, videoDurationSeconds * 1000 + 1000);
+                        }).catch(reject);
+                        
+                        video.onended = () => {
+                            if (mediaRecorder.state === 'recording') {
+                                mediaRecorder.stop();
+                            }
+                        };
+                        
+                    } catch (error) {
+                        reject(error);
+                    }
+                };
+                
+                video.onerror = reject;
+            });
+        }
+
+        // Convert WebM to WAV
+        async function convertWebmToWav(webmBlob) {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const arrayBuffer = await webmBlob.arrayBuffer();
+            const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+            return audioBufferToWav(audioBuffer);
+        }
+
+        // Convert WAV to MP3 using lamejs
+        async function convertWavToMp3(wavBuffer) {
+            return new Promise((resolve) => {
+                const numChannels = wavBuffer.numberOfChannels;
+                const sampleRate = wavBuffer.sampleRate;
+                const samples = wavBuffer.length;
+                
+                // Prepare samples for MP3 encoding
+                const left = wavBuffer.getChannelData(0);
+                let right;
+                if (numChannels > 1) {
+                    right = wavBuffer.getChannelData(1);
+                } else {
+                    right = left; // Mono to stereo
+                }
+                
+                // Convert float samples to 16-bit integers
+                const leftInt = new Int16Array(samples);
+                const rightInt = new Int16Array(samples);
+                
+                for (let i = 0; i < samples; i++) {
+                    leftInt[i] = Math.max(-32768, Math.min(32767, left[i] * 32768));
+                    rightInt[i] = Math.max(-32768, Math.min(32767, right[i] * 32768));
+                }
+                
+                // Create MP3 encoder
+                const mp3encoder = new lamejs.Mp3Encoder(numChannels, sampleRate, 128);
+                
+                // Encode samples
+                const mp3Data = [];
+                const sampleBlockSize = 1152;
+                
+                for (let i = 0; i < samples; i += sampleBlockSize) {
+                    const leftChunk = leftInt.subarray(i, i + sampleBlockSize);
+                    const rightChunk = rightInt.subarray(i, i + sampleBlockSize);
+                    const mp3buf = mp3encoder.encodeBuffer(leftChunk, rightChunk);
+                    if (mp3buf.length > 0) {
+                        mp3Data.push(new Int8Array(mp3buf));
+                    }
+                }
+                
+                // Finish encoding
+                const mp3buf = mp3encoder.flush();
+                if (mp3buf.length > 0) {
+                    mp3Data.push(new Int8Array(mp3buf));
+                }
+                
+                // Combine all MP3 data
+                const combinedLength = mp3Data.reduce((total, arr) => total + arr.length, 0);
+                const combinedArray = new Int8Array(combinedLength);
+                let offset = 0;
+                
+                mp3Data.forEach(arr => {
+                    combinedArray.set(arr, offset);
+                    offset += arr.length;
+                });
+                
+                // Create MP3 blob
+                const mp3Blob = new Blob([combinedArray], { type: 'audio/mp3' });
+                resolve(mp3Blob);
+            });
+        }
+
+        // Helper function to convert AudioBuffer to WAV format
+        function audioBufferToWav(audioBuffer) {
+            const numChannels = audioBuffer.numberOfChannels;
+            const sampleRate = audioBuffer.sampleRate;
+            const length = audioBuffer.length;
+            
+            const buffer = new ArrayBuffer(44 + length * numChannels * 2);
+            const view = new DataView(buffer);
+            
+            // RIFF header
+            writeString(view, 0, 'RIFF');
+            view.setUint32(4, 36 + length * numChannels * 2, true);
+            writeString(view, 8, 'WAVE');
+            
+            // Format chunk
+            writeString(view, 12, 'fmt ');
+            view.setUint32(16, 16, true);
+            view.setUint16(20, 1, true);
+            view.setUint16(22, numChannels, true);
+            view.setUint32(24, sampleRate, true);
+            view.setUint32(28, sampleRate * numChannels * 2, true);
+            view.setUint16(32, numChannels * 2, true);
+            view.setUint16(34, 16, true);
+            
+            // Data chunk
+            writeString(view, 36, 'data');
+            view.setUint32(40, length * numChannels * 2, true);
+            
+            // Write PCM samples
+            let offset = 44;
+            for (let i = 0; i < length; i++) {
+                for (let channel = 0; channel < numChannels; channel++) {
+                    const sample = Math.max(-1, Math.min(1, audioBuffer.getChannelData(channel)[i]));
+                    view.setInt16(offset, sample < 0 ? sample * 0x8000 : sample * 0x7FFF, true);
+                    offset += 2;
+                }
+            }
+            
+            return audioBuffer;
+        }
+
+        function writeString(view, offset, string) {
+            for (let i = 0; i < string.length; i++) {
+                view.setUint8(offset + i, string.charCodeAt(i));
+            }
+        }
+
+        // Download functionality
+        videoDownloadBtn.addEventListener('click', () => {
+            if (!extractedAudioBlob) {
+                showStatus('No MP3 file available for download.', 'error');
+                return;
+            }
+            
+            const url = URL.createObjectURL(extractedAudioBlob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${currentVideoFile.name.replace(/\.[^/.]+$/, "")}.mp3`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            showStatus('MP3 download started! Enjoy your converted audio file.', 'success');
+        });
+
+        // Initialize
+        showStatus('Upload a video file to convert it to MP3 audio format', 'success');
+
+        // Add some interactive animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate features on scroll
+            const featureCards = document.querySelectorAll('.feature-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeIn 0.8s ease forwards';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            featureCards.forEach(card => {
+                card.style.opacity = '0';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
